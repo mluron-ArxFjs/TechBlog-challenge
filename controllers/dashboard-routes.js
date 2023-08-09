@@ -27,14 +27,14 @@ router.get('/',withAuth, async (req, res) => {
 
 // @desc    Dashboard create post page
 // @route   /dashboard/create
-router.get('/create', async (req, res) => {
-  res.render('dashboard-create', { loggedIn: req.session.loggedIn || req.isAuthenticated() });
+router.get('/create',withAuth, async (req, res) => {
+  res.render('dashboard-create', { user: req.session.userId, loggedIn: req.session.loggedIn || req.isAuthenticated() });
   console.log(req.session);
 });
 
 // @desc    Dashboard edit post page
 // @route   /dashboard/post/:id
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id',withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
     if (postData) {

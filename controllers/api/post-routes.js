@@ -7,10 +7,10 @@ const { Post } = require('../../models');
 router.post('/', async (req, res) => {
 
   try {
-    console.log('/api/post', req.session);
+    console.log('/api/post route', req.session);
     const body = req.body;
     const newPost = await Post.create({ ...body, user_id: req.session.userId })
-    console.log('Create new post-routes', newPost)
+    console.log('Create newPost-route', newPost)
     if (newPost) {
       res.status(200).redirect('/dashboard')
     }
