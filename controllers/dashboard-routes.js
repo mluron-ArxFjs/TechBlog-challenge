@@ -12,7 +12,7 @@ router.get('/',withAuth, async (req, res) => {
       where: { user_id: req.session.userId || req.user.id },
       order: [['createdAt', 'DESC']]
     });
-    console.log(req.session)
+  
     if (postData.length) {
       const posts = postData.map((post) => post.get({ plain: true }));
       res.render('dashboard', { posts, user, loggedIn: req.session.loggedIn || req.isAuthenticated() });
@@ -29,7 +29,6 @@ router.get('/',withAuth, async (req, res) => {
 // @route   /dashboard/create
 router.get('/create',withAuth, async (req, res) => {
   res.render('dashboard-create', { user: req.session.userId, loggedIn: req.session.loggedIn || req.isAuthenticated() });
-  console.log(req.session);
 });
 
 // @desc    Dashboard edit post page

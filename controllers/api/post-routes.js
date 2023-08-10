@@ -1,20 +1,16 @@
 const router = require('express').Router();
 const { Post } = require('../../models');
-//const { withAuth } = require('../../utils/auth');
 
 // @desc    Add post
 // @route   POST /api/post
 router.post('/', async (req, res) => {
 
   try {
-    console.log('/api/post route', req.session);
     const body = req.body;
     const newPost = await Post.create({ ...body, user_id: req.session.userId })
-    console.log('Create newPost-route', newPost)
     if (newPost) {
       res.status(200).redirect('/dashboard')
     }
-
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

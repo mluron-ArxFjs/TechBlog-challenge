@@ -12,7 +12,7 @@ const newPost = async (e) => {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
     body: JSON.stringify(payload),
-  })
+  });
 
   if (res.ok) {
     document.location.replace('/dashboard');

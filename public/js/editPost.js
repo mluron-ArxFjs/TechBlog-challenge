@@ -16,8 +16,9 @@ const updatePost = async (e) => {
     const id = endpoint[endpoint.length - 1];
 
     const res = await fetch(`/api/post/${id}`, {
+      headers: { 'Content-Type': 'application/json' },
       method: 'PUT',
-      body: formData,
+      body: JSON.stringify({ title, content },),
     });
 
     if (res.ok) {
@@ -26,7 +27,7 @@ const updatePost = async (e) => {
       alert('You cannot update this!');
     }
   }
-};
+}
 
 const deletePost = async (e) => {
   e.preventDefault();
