@@ -1,5 +1,6 @@
 # TechBlog-challenge
-MVC architectural structure, using Handlebars.js, Sequelize and express-session npm packages.
+[![License badge](https://img.shields.io/badge/liscense-MIT-blue)](./LICENSE) 
+
  ## Table of Contents
   
   * [Description](#description)
@@ -9,7 +10,7 @@ MVC architectural structure, using Handlebars.js, Sequelize and express-session 
   
   
   ## [Description](#table-of-contents)
-
+MVC architectural structure, using Handlebars.js, Sequelize and express-session npm packages.
   This is a basic CMS-style blog site that was created using the Model, View, Controller paradigm. This site is currently hosted on [Heroku](https://dashboard.heroku.com/apps/dry-plateau-45378) and can also be run locally using the files located in the GitHub repository Github.
 
    ### __User Story__
