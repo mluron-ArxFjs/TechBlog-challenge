@@ -10,7 +10,7 @@ MVC architectural structure, using Handlebars.js, Sequelize and express-session 
   
   ## [Description](#table-of-contents)
 
-  This is a basic CMS-style blog site that was created using the Model, View, Controller paradigm. This site is currently hosted on [Heroku](https:) and can also be run locally using the files located in the GitHub repository Github.
+  This is a basic CMS-style blog site that was created using the Model, View, Controller paradigm. This site is currently hosted on [Heroku](https://dashboard.heroku.com/apps/dry-plateau-45378) and can also be run locally using the files located in the GitHub repository Github.
 
    ### __User Story__
    ```
