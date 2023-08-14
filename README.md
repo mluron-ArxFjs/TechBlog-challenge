@@ -67,7 +67,7 @@ MVC architectural structure, using Handlebars.js, Sequelize and express-session 
   
    * ```npm run seed ```
    * ```npm start```
-
+![Screenshot](./public/images/Screen%20Shot.png)
    ## [Contact](#table-of-contents)
 
 - [GitHub](https://github.com/mluron-ArxFjs)
