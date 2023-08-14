@@ -38,26 +38,6 @@ router.get('/',withAuth, async (req, res) => {
   }
 });
 
-// @desc    Single post page
-// @route   /post/:id
-router.get('/post/:id',withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
-    });
-    const post = postData.get({ plain: true });
-    res.render('post', { post, loggedIn: req.session.loggedIn || req.isAuthenticated() });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
 // @desc    Signup page
 // @route   /signup
 router.get('/signup', isGuest, (req, res) => {

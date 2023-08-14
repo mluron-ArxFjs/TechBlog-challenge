@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment } = require('../../models');
 
 // @desc    Add post
 // @route   POST /api/post
@@ -10,6 +10,26 @@ router.post('/', async (req, res) => {
     const newPost = await Post.create({ ...body, user_id: req.session.userId })
     if (newPost) {
       res.status(200).redirect('/dashboard')
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// @desc    Add comment
+// @route   POST /api/post/:id
+router.post('/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+
+    if (postData) {
+      const commentData = await Comment.create({
+        text: req.body.message,
+        user_id: req.session.userId || req.user.id,
+        post_id: parseInt(req.params.id)
+      });
+      res.status(200).json(commentData);
     }
   } catch (err) {
     console.log(err);

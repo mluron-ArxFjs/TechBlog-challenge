@@ -46,4 +46,18 @@ router.get('/post/:id',withAuth, async (req, res) => {
   }
 });
 
+// @desc    Dashboard comment post page
+// @route   /dashboard/post/:id
+router.post('/post/:id',withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    if (postData) {
+      const post = postData.get({ plain: true });
+      res.render('dashboard-comment', { post, loggedIn: req.session.loggedIn || req.isAuthenticated() });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 module.exports = router;

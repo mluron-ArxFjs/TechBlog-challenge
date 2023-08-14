@@ -18,7 +18,7 @@ const updatePost = async (e) => {
     const res = await fetch(`/api/post/${id}`, {
       headers: { 'Content-Type': 'application/json' },
       method: 'PUT',
-      body: JSON.stringify({ title, content },),
+      body: JSON.stringify({ title, content }),
     });
 
     if (res.ok) {
